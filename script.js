@@ -1,12 +1,16 @@
-
 document.getElementById("formContato").addEventListener("submit", async function (e) {
   e.preventDefault();
+
+  const btnEnviar = e.target.querySelector("button[type='submit']");
+  btnEnviar.disabled = true;
+  btnEnviar.textContent = "Enviando...";
 
   const nome = document.getElementById("nome").value.trim();
   const email = document.getElementById("email").value.trim();
   const whatsapp = document.getElementById("whatsapp").value.trim();
   const mensagem = document.getElementById("mensagem").value.trim();
 
+  // Webhooks - substitua pelos seus links reais
   const webhookPrivada = "https://discord.com/api/webhooks/1390864875705733191/AudiuKWxfeBGlJnLqyorsshg3h_ntsn0p2D0_YDkweEjfHKUNSmJltT1YCr7Z7YzFPB9";
   const webhookPublica = "https://discord.com/api/webhooks/1390868376313663609/QvmY53-UqSTRLnVjp0QtHPu7zZyQM_iD_imIV5F8W7BvtD5b_wVVzZf8bSrCMNKnZAs0";
 
@@ -83,13 +87,19 @@ document.getElementById("formContato").addEventListener("submit", async function
       body: JSON.stringify(dadosPublicos)
     });
 
-    document.getElementById("formContato").reset();
+    e.target.reset();
+
     const aviso = document.getElementById("aviso");
     aviso.style.display = "block";
+
     setTimeout(() => {
       aviso.style.display = "none";
     }, 7000);
-  } catch {
+  } catch (err) {
     alert("❌ Erro ao enviar. Tente novamente.");
+    console.error("Erro ao enviar webhook:", err);
+  } finally {
+    btnEnviar.disabled = false;
+    btnEnviar.textContent = "📨 Enviar Pedido";
   }
 });
