@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +9,9 @@ body {
   background: linear-gradient(to bottom, #4b0082, #1a0033);
   color: #ffffff;
   overflow-x: hidden;
+  /* suaviza fontes no Chrome */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 header {
@@ -17,12 +19,16 @@ header {
   padding: 30px 20px;
   text-align: center;
   box-shadow: 0 0 20px #000a;
+  position: sticky;   /* deixa fixo ao scroll */
+  top: 0;
+  z-index: 100;
 }
 
 header h1 {
   font-size: 2.7rem;
   color: #facc15;
   margin-bottom: 5px;
+  text-shadow: 0 0 5px #facc15cc;
 }
 
 nav {
@@ -33,12 +39,15 @@ nav a {
   margin: 0 15px;
   color: #ccc;
   text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  font-size: 1.1rem;
 }
 
-nav a:hover {
+nav a:hover,
+nav a:focus {
   color: #facc15;
+  outline: none;
 }
 
 section {
@@ -52,14 +61,18 @@ section {
 }
 
 .hero h2 {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   color: #fff;
   margin-bottom: 10px;
+  text-shadow: 0 0 10px #ffdd55cc;
 }
 
 .hero p {
-  font-size: 1.1rem;
-  color: #bbb;
+  font-size: 1.2rem;
+  color: #ddd;
+  max-width: 600px;
+  margin: auto;
+  line-height: 1.5;
 }
 
 .contato {
@@ -68,19 +81,26 @@ section {
   padding: 30px;
   margin-top: 50px;
   box-shadow: 0 0 15px #0007;
+  transition: box-shadow 0.3s ease;
+}
+
+.contato:hover {
+  box-shadow: 0 0 25px #facc15aa;
 }
 
 .contato h3 {
   color: #facc15;
   margin-bottom: 20px;
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
+  letter-spacing: 1px;
 }
 
 .contato label {
   display: block;
   margin: 10px 0 5px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 .contato input,
@@ -92,13 +112,15 @@ section {
   color: #fff;
   border-radius: 8px;
   font-size: 1rem;
-  transition: 0.2s;
+  transition: background-color 0.2s ease, outline 0.2s ease;
+  box-shadow: inset 0 0 5px #0008;
 }
 
 .contato input:focus,
 .contato textarea:focus {
   outline: 2px solid #facc15;
   background: #4a0091;
+  box-shadow: 0 0 10px #facc15cc;
 }
 
 .contato button {
@@ -107,17 +129,22 @@ section {
   border: none;
   background: #facc15;
   color: #000;
-  font-weight: bold;
-  font-size: 1.1rem;
+  font-weight: 700;
+  font-size: 1.15rem;
   border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   display: block;
   width: 100%;
+  box-shadow: 0 3px 8px #facc15bb;
 }
 
-.contato button:hover {
+.contato button:hover,
+.contato button:focus {
   background: #ffe45e;
+  transform: scale(1.03);
+  outline: none;
+  box-shadow: 0 4px 12px #ffe45ecc;
 }
 
 #aviso {
@@ -125,9 +152,9 @@ section {
   margin-top: 25px;
   color: #facc15;
   text-align: center;
-  font-weight: bold;
-  font-size: 1.1rem;
-  animation: fadeIn 1s ease forwards;
+  font-weight: 700;
+  font-size: 1.15rem;
+  animation: fadeIn 0.6s ease forwards;
 }
 
 @keyframes fadeIn {
@@ -148,4 +175,5 @@ footer {
   font-size: 0.9rem;
   background: #190033;
   margin-top: 60px;
+  user-select: none;
 }
