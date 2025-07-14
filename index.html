@@ -1,11 +1,12 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NexSites - Criação de Sites</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="snow-container"></div>
@@ -18,35 +19,43 @@
       </nav>
     </header>
 
-    <section id="inicio" class="hero">
-      <h2>Sites Profissionais e Criativos</h2>
-      <p>
-        Transformamos ideias em sites modernos, rápidos e com design exclusivo.
-      </p>
-    </section>
+    <main>
+      <section id="inicio" class="hero">
+        <div class="hero-content">
+          <h2>Sites Profissionais e Criativos</h2>
+          <p>
+            Transformamos ideias em sites modernos, rápidos e com design exclusivo.
+          </p>
+        </div>
+      </section>
 
-    <section id="contato" class="contato">
-      <h3>Solicite seu site</h3>
-      <form id="formContato">
-        <label for="nome">Seu nome</label>
-        <input type="text" id="nome" required />
+      <section id="contato" class="contato">
+        <h3>Solicite seu site</h3>
+        <form id="formContato">
+          <label for="nome">Seu nome</label>
+          <input type="text" id="nome" placeholder="Digite seu nome" required />
 
-        <label for="email">Seu e-mail</label>
-        <input type="email" id="email" required />
+          <label for="email">Seu e-mail</label>
+          <input type="email" id="email" placeholder="email@exemplo.com" required />
 
-        <label for="whatsapp">Seu WhatsApp</label>
-        <input type="tel" id="whatsapp" placeholder="(99) 99999-9999" required />
+          <label for="whatsapp">Seu WhatsApp</label>
+          <input type="tel" id="whatsapp" placeholder="(99) 99999-9999" required />
 
-        <label for="mensagem">Sua mensagem</label>
-        <textarea id="mensagem" rows="4" placeholder="Descreva o que deseja..."></textarea>
+          <label for="mensagem">Sua mensagem</label>
+          <textarea id="mensagem" rows="4" placeholder="Descreva o que deseja..."></textarea>
 
-        <button type="submit">Enviar pedido</button>
-      </form>
+          <button type="submit">📨 Enviar Pedido</button>
+        </form>
 
-      <p id="aviso">✅ Pedido enviado! Nós entraremos em contato com você pelo WhatsApp em breve.</p>
-    </section>
+        <p id="aviso" style="display: none;">
+          ✅ Pedido enviado! Nós entraremos em contato com você pelo WhatsApp em breve.
+        </p>
+      </section>
+    </main>
 
-    <footer>© 2025 NexSites – Todos os direitos reservados.</footer>
+    <footer>
+      © 2025 NexSites – Todos os direitos reservados.
+    </footer>
 
     <script src="script.js"></script>
     <script src="neve.js"></script>
